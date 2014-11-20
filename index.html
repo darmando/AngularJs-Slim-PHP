@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html ng-app="myAppDesarrolloHidrocalido">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    </head>
+    <body ng-controller="miController" class="container">
+        <div class="panel panel-success">
+          <div class="panel-heading">
+            <h2 class="panel-title">Productos - Desarrollo Hidrocálido</h2>
+          </div>
+          <div class="panel-body ">
+            <form class="form-inline" role="form">
+              <div class="form-group">
+                 <input type="text" ng-model="txtNombre" placeholder="Nombre del producto" class="form-control text-center" />
+              </div>
+              <div class="form-group">
+                 <input type="text" ng-model="txtPrecio" placeholder="Precio " class="form-control text-center" />
+              </div>
+                <button class="btn btn-primary " ng-click="agregarProducto()">Añadir</button>
+                <button class="btn btn-primary " ng-click="editarProducto()">Editar</button>
+            </form>
+            <br>
+             <h4>Mis Productos:</h4>
+             <ul class="list-group">
+                <li class="list-group-item" ng-repeat="prod in productos">
+                 {{prod.nombre}} ({{prod.precio}})
+                  <span ng-click="eliminarProducto(prod.cat_prec_id)" class="glyphicon glyphicon-remove-circle">
+                  </span>
+                  <span ng-click="mostrarInformacion(prod.cat_prec_id,prod.nombre,prod.precio)" class="glyphicon glyphicon-pencil">
+                  </span>
+                </li>
+             </ul>                
+          </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+        <script src="controller/app.js"></script>
+    </body>
+</html>
